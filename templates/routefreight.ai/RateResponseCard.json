@@ -1,0 +1,240 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "Image",
+                    "url": "${mapUrl}",
+                    "size": "Stretch",
+                    "altText": "Route Map"
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "Shipment Overview",
+                    "weight": "Bolder",
+                    "size": "Medium",
+                    "separator": true
+                },
+                {
+                    "type": "FactSet",
+                    "facts": [
+                        {
+                            "title": "Origin:",
+                            "value": "${shipmentDetails.originCity}, ${shipmentDetails.originState} (${shipmentDetails.originZip})"
+                        },
+                        {
+                            "title": "Destination:",
+                            "value": "${shipmentDetails.destinationCity}, ${shipmentDetails.destinationState} (${shipmentDetails.destinationZip})"
+                        },
+                        {
+                            "title": "Equipment Type:",
+                            "value": "${shipmentDetails.equipment}"
+                        },
+                        {
+                            "title": "Shipping Date:",
+                            "value": "${shipDate}"
+                        },
+                        {
+                            "title": "Miles:",
+                            "value": "${shipmentDetails.miles} miles"
+                        }
+                    ]
+                },
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": 50,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "DAT Rates",
+                                    "weight": "Bolder",
+                                    "size": "Medium",
+                                    "separator": true
+                                },
+                                {
+                                    "type": "FactSet",
+                                    "facts": [
+                                        {
+                                            "title": "Mileage:",
+                                            "value": "${rateSummary.dat.mileage} miles"
+                                        },
+                                        {
+                                            "title": "Rate (USD):",
+                                            "value": "$${rateSummary.dat.rateUsd}"
+                                        },
+                                        {
+                                            "title": "High (USD):",
+                                            "value": "$${rateSummary.dat.highUsd}"
+                                        },
+                                        {
+                                            "title": "Low (USD):",
+                                            "value": "$${rateSummary.dat.lowUsd}"
+                                        },
+                                        {
+                                            "title": "Avg. Fuel Surcharge:",
+                                            "value": "$${rateSummary.dat.averageFuelSurchargePerTripUsd} per trip"
+                                        },
+                                        {
+                                            "title": "Reports:",
+                                            "value": "${rateSummary.dat.reports}"
+                                        },
+                                        {
+                                            "title": "Companies Reporting:",
+                                            "value": "${rateSummary.dat.companies}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": 50,
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "ITS Rates",
+                                    "weight": "Bolder",
+                                    "size": "Medium",
+                                    "separator": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "1 Year Average Rate (its)",
+                                    "weight": "Lighter",
+                                    "spacing": "Small"
+                                },
+                                {
+                                    "type": "FactSet",
+                                    "facts": [
+                                        {
+                                            "title": "Flat Rate:",
+                                            "value": "$${rateSummary.its.flatRate}"
+                                        },
+                                        {
+                                            "title": "Line Haul:",
+                                            "value": "$${rateSummary.its.lineHaulRateFlat}"
+                                        },
+                                        {
+                                            "title": "All-in Rate:",
+                                            "value": "$${rateSummary.its.allinRateFlat}"
+                                        },
+                                        {
+                                            "title": "Fuel Cost:",
+                                            "value": "$${rateSummary.its.fuelCost}"
+                                        },
+                                        {
+                                            "title": "Reports:",
+                                            "value": "${rateSummary.its.reports}"
+                                        },
+                                        {
+                                            "title": "Companies Reporting:",
+                                            "value": "${rateSummary.its.companiesReporting}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "30 Day Average Rate (its30)",
+                                    "weight": "Lighter",
+                                    "spacing": "Small"
+                                },
+                                {
+                                    "type": "FactSet",
+                                    "facts": [
+                                        {
+                                            "title": "Flat Rate:",
+                                            "value": "$${rateSummary.its30.flatRate}"
+                                        },
+                                        {
+                                            "title": "Line Haul:",
+                                            "value": "$${rateSummary.its30.lineHaulRateFlat}"
+                                        },
+                                        {
+                                            "title": "All-in Rate:",
+                                            "value": "$${rateSummary.its30.allinRateFlat}"
+                                        },
+                                        {
+                                            "title": "Fuel Cost:",
+                                            "value": "$${rateSummary.its30.fuelCost}"
+                                        },
+                                        {
+                                            "title": "Reports:",
+                                            "value": "${rateSummary.its30.reports}"
+                                        },
+                                        {
+                                            "title": "Companies Reporting:",
+                                            "value": "${rateSummary.its30.companiesReporting}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "90 Day Weighted Rate (its90w)",
+                                    "weight": "Lighter",
+                                    "spacing": "Small"
+                                },
+                                {
+                                    "type": "FactSet",
+                                    "facts": [
+                                        {
+                                            "title": "Flat Rate:",
+                                            "value": "$${rateSummary.its90w.flatRate}"
+                                        },
+                                        {
+                                            "title": "Line Haul:",
+                                            "value": "$${rateSummary.its90w.lineHaulRateFlat}"
+                                        },
+                                        {
+                                            "title": "All-in Rate:",
+                                            "value": "$${rateSummary.its90w.allinRateFlat}"
+                                        },
+                                        {
+                                            "title": "Fuel Cost:",
+                                            "value": "$${rateSummary.its90w.fuelCost}"
+                                        },
+                                        {
+                                            "title": "Reports:",
+                                            "value": "${rateSummary.its90w.reports}"
+                                        },
+                                        {
+                                            "title": "Companies Reporting:",
+                                            "value": "${rateSummary.its90w.companiesReporting}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Update Rate",
+            "data": {
+                "id": "updateRate"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Submit Quote",
+            "data": {
+                "id": "submitQuote"
+            }
+        },
+        {
+            "type": "Action.OpenUrl",
+            "title": "View Full Map",
+            "url": "${mapUrl}"
+        }
+    ]
+}
