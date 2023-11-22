@@ -21,7 +21,7 @@ jobs:
       - name: Generate Adaptive Template
         run: |
           cd src 
-          npm install
+          npm install --force
           npm run generate
           npm prune --production
       - name: commit changes
