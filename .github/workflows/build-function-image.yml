@@ -21,7 +21,6 @@ jobs:
       - name: Generate Adaptive Template
         run: |
           cd src 
-          func extensions sync 
           npm install
           npm run generate
           npm prune --production
